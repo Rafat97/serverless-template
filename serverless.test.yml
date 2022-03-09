@@ -1,0 +1,15 @@
+- name: TestJs function `/v1/TestJs` endpoint returns 200
+  endpoint:
+    function: TestJs
+    path: /v1/TestJs
+    method: get
+  response:
+    status: 200
+
+- name: TestPython function `/v1/TestPython` endpoint returns 200
+  endpoint:
+    function: TestPython
+    path: /v1/TestPython
+    method: get
+  response:
+    status: 200

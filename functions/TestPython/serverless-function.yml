@@ -1,0 +1,15 @@
+TestPython:
+  name: ${self:app}__${self:service}__TestPython__${sls:stage}
+  description: This is for test function using python3.9
+  runtime: python3.9
+  module: functions/TestPython
+  handler: functions/TestPython/handler.main_function
+  package:
+    patterns:
+      - "functions/TestPython/**"
+  events:
+    - http:
+        path: /v1/TestPython
+        method: get
+        cors: true
+        # credentials: true

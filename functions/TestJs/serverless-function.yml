@@ -1,0 +1,17 @@
+TestJs:
+    name: ${self:app}__${self:service}__TestJs__${sls:stage}
+    description: This is for test function using nodejs14.x
+    runtime: nodejs14.x
+    module: functions/TestJs
+    handler: functions/TestJs/handler.main_function
+    package:
+      patterns:
+        - "!./functions/TestJs/*.lock"
+        - "./functions/TestJs/**"
+    events:
+      - http:
+          path: /v1/TestJs
+          method: get
+          cors: true
+          # credentials: true
+

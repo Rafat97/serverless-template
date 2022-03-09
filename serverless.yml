@@ -1,0 +1,63 @@
+## sls deploy  --stage dev --region us-east-1  --version --verbose
+
+org: ${self:custom.basic.org}
+app: ${self:custom.basic.app}
+
+service: test-service-api
+
+# configValidationMode: warn
+frameworkVersion: "3"
+
+
+provider:
+  name: "aws"
+  profile: ${self:custom.common.profiles.${sls:stage}}
+  memorySize: 256
+  timeout: 10
+  stage: ${self:custom.common.stage}
+  region: ${self:custom.common.region}
+
+
+
+## Here you can change your custom variables
+custom:
+  common:
+    profiles:
+      dev: account-profile-dev
+      prod: account-profile-prod
+    stage: ${opt:stage, 'dev'}
+    region: ${opt:region, 'us-east-1'}: 
+    
+  basic: 
+    org: carxpartsdev
+    app: carxparts 
+
+
+plugins:
+  - serverless-iam-roles-per-function
+  - serverless-python-requirements
+  - serverless-offline
+
+
+package:
+  individually: true
+  patterns:
+    - "!**"
+    
+functions:
+  ${file(./serverless-dynamic-function.js)} # auto discover the functions
+
+# you can add serverless framework output here
+outputs:
+  app_name: ${self:app}
+  service_name: ${self:service}
+  stage: ${self:provider.stage}
+  region: ${self:provider.region}
+  api_name: ${self:provider.apiName}
+
+# you can add CloudFormation resource templates here
+resources:
+  Outputs:
+    NewOutput:
+      Description: "Description for the output"
+      Value: "Some output value"

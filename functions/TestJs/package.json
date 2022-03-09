@@ -1,0 +1,9 @@
+{
+	"description": "",
+	"author": "",
+	"dependencies": {
+		"aws-sdk": "^2.1073.0",
+		"axios": "^0.26.0",
+		"elasticsearch": "^16.7.2"
+	}
+}
