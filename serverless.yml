@@ -3,12 +3,12 @@
 org: ${self:custom.basic.org}
 app: ${self:custom.basic.app}
 
-service: test-service-api
+service: ${self:custom.services.TestServiceApi.name}
 
 # configValidationMode: warn
 frameworkVersion: "3"
 
-
+## Here you can change your provider
 provider:
   name: "aws"
   profile: ${self:custom.common.profiles.${sls:stage}}
@@ -16,7 +16,6 @@ provider:
   timeout: 10
   stage: ${self:custom.common.stage}
   region: ${self:custom.common.region}
-
 
 
 ## Here you can change your custom variables
@@ -29,8 +28,13 @@ custom:
     region: ${opt:region, 'us-east-1'}: 
     
   basic: 
-    org: carxpartsdev
-    app: carxparts 
+    org: serverless_framework_org
+    app: serverless_framework_app 
+    
+  services:
+    TestServiceApi:
+      name: test-service-api
+      description: "A test service for rest api" 
 
 
 plugins:
