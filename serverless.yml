@@ -25,7 +25,7 @@ custom:
       dev: account-profile-dev
       prod: account-profile-prod
     stage: ${opt:stage, 'dev'}
-    region: ${opt:region, 'us-east-1'}: 
+    region: ${opt:region, 'us-east-1'}
     
   basic: 
     org: serverless_framework_org
@@ -57,7 +57,6 @@ outputs:
   service_name: ${self:service}
   stage: ${self:provider.stage}
   region: ${self:provider.region}
-  api_name: ${self:provider.apiName}
 
 # you can add CloudFormation resource templates here
 resources:
