@@ -1,4 +1,6 @@
 const deploy = async (dir) => {
+  await $`cd ${dir} && sls doctor`;
+  await $`cd ${dir} && sls print`;
   await $`cd ${dir} && sls deploy --verbose`;
 };
 
