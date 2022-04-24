@@ -13,3 +13,10 @@ custom:
       prod: profiles-sls-account
     stage: ${opt:stage, 'dev'}
     region: ${opt:region, 'us-east-1'}
+
+  services:
+    TestServiceApi:
+      name: test-service-api
+      description: "A test service for rest api"
+      
+      
