@@ -5,7 +5,7 @@ org: ${self:custom.basic.org}
 app: ${self:custom.basic.app}
 ###### DON'T CHANGE THIS #######
 
-service: "test-api-service"
+service: ${self:custom.services.TestServiceApi.name}
 
 # configValidationMode: warn
 frameworkVersion: "3"
@@ -23,11 +23,7 @@ provider:
 custom:
   common: ${file('../serverless-common.yml'):custom.common}
   basic: ${file('../serverless-common.yml'):custom.basic}
-
-  services:
-    TestServiceApi:
-      name: test-service-api
-      description: "A test service for rest api"
+  services: ${file('../serverless-common.yml'):custom.services}
 
 plugins:
   - serverless-iam-roles-per-function
