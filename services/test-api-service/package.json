@@ -1,0 +1,23 @@
+{
+  "name": "test-service-api",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "deploy:dev": "sls deploy --stage dev",
+    "deploy:prod": "sls deploy --stage prod",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "serverless-iam-roles-per-function": "^3.2.0",
+    "serverless-offline": "^8.4.0",
+    "serverless-python-requirements": "^5.3.1",
+    "serverless-webpack": "^5.6.1"
+  },
+  "devDependencies": {
+    "serverless-domain-manager": "^6.0.2",
+    "serverless-openapi-documentation": "^0.4.0",
+    "yamljs": "^0.3.0"
+  }
+}

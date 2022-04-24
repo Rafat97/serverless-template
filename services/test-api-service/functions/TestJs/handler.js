@@ -1,9 +1,6 @@
 "use strict";
 
 const aws_sdk = require("aws-sdk");
-const uuid = require("uuid");
-const elasticsearch = require("elasticsearch");
-const axios = require("axios");
 
 module.exports.main_function = async (event) => {
 	return {

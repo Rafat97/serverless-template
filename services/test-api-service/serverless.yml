@@ -1,9 +1,11 @@
 ## sls deploy  --stage dev --region us-east-1  --version --verbose
 
+###### DON'T CHANGE THIS #######
 org: ${self:custom.basic.org}
 app: ${self:custom.basic.app}
+###### DON'T CHANGE THIS #######
 
-service: ${self:custom.services.TestServiceApi.name}
+service: "test-api-service"
 
 # configValidationMode: warn
 frameworkVersion: "3"
@@ -17,39 +19,27 @@ provider:
   stage: ${self:custom.common.stage}
   region: ${self:custom.common.region}
 
-
 ## Here you can change your custom variables
 custom:
-  common:
-    profiles:
-      dev: account-profile-dev
-      prod: account-profile-prod
-    stage: ${opt:stage, 'dev'}
-    region: ${opt:region, 'us-east-1'}: 
-    
-  basic: 
-    org: serverless_framework_org
-    app: serverless_framework_app 
-    
+  common: ${file('../serverless-common.yml'):custom.common}
+  basic: ${file('../serverless-common.yml'):custom.basic}
+
   services:
     TestServiceApi:
       name: test-service-api
-      description: "A test service for rest api" 
-
+      description: "A test service for rest api"
 
 plugins:
   - serverless-iam-roles-per-function
   - serverless-python-requirements
   - serverless-offline
 
-
 package:
   individually: true
   patterns:
     - "!**"
-    
-functions:
-  ${file(./serverless-dynamic-function.js)} # auto discover the functions
+
+functions: ${file(./serverless-dynamic-function.js)} # auto discover the functions
 
 # you can add serverless framework output here
 outputs:
@@ -57,7 +47,6 @@ outputs:
   service_name: ${self:service}
   stage: ${self:provider.stage}
   region: ${self:provider.region}
-  api_name: ${self:provider.apiName}
 
 # you can add CloudFormation resource templates here
 resources:

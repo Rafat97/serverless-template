@@ -1,0 +1,15 @@
+####################################################################################
+# This file is use for share all the common variable across all the services.
+####################################################################################
+
+custom:
+  basic:
+    org: account-org
+    app: account-app
+
+  common:
+    profiles:
+      dev: profiles-sls-account
+      prod: profiles-sls-account
+    stage: ${opt:stage, 'dev'}
+    region: ${opt:region, 'us-east-1'}

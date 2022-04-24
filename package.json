@@ -1,23 +1,24 @@
 {
-  "name": "test-service-api",
-  "version": "1.0.0",
-  "description": "",
+  "name": "serverless-template",
+  "version": "0.0.1",
+  "description": "a template for serverless-framework service oriented folder structure.",
+  "main": "index.js",
   "scripts": {
-    "deploy:dev": "sls deploy --stage dev",
-    "deploy:prod": "sls deploy --stage prod",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "deploy": "zx scripts/deploy.mjs"
   },
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rafat97/serverless-template.git"
+  },
+  "keywords": [
+    "service",
+    "serverless-framework",
+    "boilerplate"
+  ],
+  "author": "@rafat97",
   "license": "ISC",
-  "dependencies": {
-    "serverless-iam-roles-per-function": "^3.2.0",
-    "serverless-offline": "^8.4.0",
-    "serverless-python-requirements": "^5.3.1",
-    "serverless-webpack": "^5.6.1"
+  "bugs": {
+    "url": "https://github.com/Rafat97/serverless-template/issues"
   },
-  "devDependencies": {
-    "serverless-domain-manager": "^6.0.2",
-    "serverless-openapi-documentation": "^0.4.0",
-    "yamljs": "^0.3.0"
-  }
+  "homepage": "https://github.com/Rafat97/serverless-template#readme"
 }
