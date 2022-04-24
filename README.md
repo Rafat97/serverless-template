@@ -1,6 +1,9 @@
 # Serverless Template
 
-A sample boiler plate of server-less framework
+A sample boilerplate of server-less framework
+
+### Single Application - [here](https://github.com/Rafat97/serverless-template/tree/rest_api)
+### Service Application - [here](https://github.com/Rafat97/serverless-template/tree/service-based)
 
 @rafat97
 
